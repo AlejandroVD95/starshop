@@ -1,6 +1,40 @@
 # Starshop
 
+[01. Configurando nuestra App Symfony](#01-configurando-nuestra-app-symfony)
+
+[02. Conociendo nuestro pequeño proyecto](#02-conociendo-nuestro-pequeño-proyecto)
+
+[03. Rutas, controladores y respuestas](#03-rutas-controladores-y-respuestas)
+
+[04. Recetas Flex Mágicas](#04-recetas-flex-mágicas)
+
+[05. Twig y plantillas](#05-twig-y-plantillas)
+
+[06. Herencia de plantillas Twig](#06-herencia-de-plantillas-twig)
+
+[07. Depurando con el Asombroso Perfilador](#07-depurando-con-el-asombroso-perfilador)
+
+[08. Creación de rutas API JSON](#08-creación-de-rutas-api-json)
+
+[09. Los Servicios: La columna vertebral de todo](#09-los-servicios-la-columna-vertebral-de-todo)
+
+[10. Crear tu propio Servicio](#10-crear-tu-propio-servicio)
+
+[11. Rutas más sofisticadas: Requisitos, comodines y más](#11-rutas-más-sofisticadas-requisitos-comodines-y-más)
+
+[12. Generar URLs](#12-generar-urls)
+
+[13. CSS y JavaScript con Asset Mapper](#13-css-y-javascript-con-asset-mapper)
+
+[14. Tailwind CSS](#14-tailwind-css)
+
+[15. Twig Parciales y para bucles](#15-twig-parciales-y-para-bucles)
+
+---
+
 ## 01. Configurando nuestra App Symfony
+
+[🔝](#starshop)
 
 ### Lo que hace especial a Symfony
 
@@ -26,6 +60,8 @@ Lo detenemos con `CTRL+C`
 
 ## 02. Conociendo nuestro pequeño proyecto
 
+[🔝](#starshop)
+
 ### Los 15 archivos de nuestro proyecto
 
 ### ¿Dónde está Symfony?
@@ -41,6 +77,8 @@ composer install
 ### Los 2 directorios que te importan
 
 ## 03. Rutas, controladores y respuestas
+
+[🔝](#starshop)
 
 ### Creación del controlador
 
@@ -70,6 +108,8 @@ src/Controller/MainController.php
 
 ## 04. Recetas Flex Mágicas
 
+[🔝](#starshop)
+
 ### Alias Flex
 
 ### El sistema de recetas
@@ -93,6 +133,8 @@ php ./vendor/bin/php-cs-fixer fix
 ```
 
 ## 05. Twig y plantillas
+
+[🔝](#starshop)
 
 ### Instalación de Twig
 
@@ -258,6 +300,8 @@ Actualizamos la plantilla:
 
 ## 06. Herencia de plantillas Twig
 
+[🔝](#starshop)
+
 ### Ampliando el diseño base
 
 ```twig
@@ -322,6 +366,8 @@ Actualizamos `templates/main/homepage.html.twig`:
 
 ## 07. Depurando con el Asombroso Perfilador
 
+[🔝](#starshop)
+
 ### Instalar las herramientas de depuración
 
 ```shell
@@ -333,11 +379,13 @@ composer require debug
 ### ¡Hola bin/console!
 
 ```shell
-php bin/console debug:router
-php bin/console debug:twig
+symfony console debug:router
+symfony console debug:twig
 ```
 
 ## 08. Creación de rutas API JSON
+
+[🔝](#starshop)
 
 ### Creación de la nueva Ruta y Controlador
 
@@ -498,6 +546,8 @@ composer require serializer
 
 ## 09. Los Servicios: La columna vertebral de todo
 
+[🔝](#starshop)
+
 ### ¿Qué es un Servicio?
 
 Un servicio es un objeto que hace un trabajo.
@@ -509,7 +559,7 @@ A veces también oirás que estos servicios están organizados en un gran objeto
 Busca tu terminal y ejecuta:
 
 ```shell
-bin/console debug:container
+symfony console debug:container
 ```
 
 ### Los bundles proporcionan servicios
@@ -523,7 +573,7 @@ Y aunque hay muchos servicios en esta lista, la gran mayoría son objetos de ser
 En su lugar, ejecuta un comando relacionado llamado:
 
 ```shell
-php bin/console debug:autowiring
+symfony console debug:autowiring
 ```
 
 Esto nos muestra todos los servicios que son autocableables, que es la técnica que utilizaremos para obtener servicios. Básicamente, es una lista simplificada de los servicios que es más probable que necesitemos.
@@ -533,7 +583,7 @@ Esto nos muestra todos los servicios que son autocableables, que es la técnica 
 La cuestión es: si queremos un *log* (registro) de algo, sólo tenemos que encontrar el servicio que hace ese trabajo. ¡De acuerdo! Vuelve a ejecutar el comando pero busca log:
 
 ```shell
-php bin/console debug:autowiring log
+symfony console debug:autowiring log
 ```
 
 ```php
@@ -614,6 +664,8 @@ class StarshipApiController extends AbstractController
 Para acceder al perfilador de esta petición, cambia la URL a `/_profiler`.
 
 ## 10. Crear tu propio Servicio
+
+[🔝](#starshop)
 
 ### Crear la clase de servicio
 
@@ -794,6 +846,8 @@ Actualizamos `templates/main/homepage.html.twig`:
 
 ## 11. Rutas más sofisticadas: Requisitos, comodines y más
 
+[🔝](#starshop)
+
 ### Restringir el comodín a un número
 
 ```php
@@ -854,6 +908,8 @@ public function get(int $id, StarshipRepository $repository): Response
 
 ## 12. Generar URLs
 
+[🔝](#starshop)
+
 ### Crear la página Mostrar
 
 ### Crear la plantilla
@@ -876,6 +932,8 @@ El nombre podría ser cualquier cosa, pero ésta es la convención que yo sigo: 
 Nombrar una ruta nos permite generar una URL hacia ella. Para generar la URL, diré `{{ path() }}` y le pasaré el nombre de la ruta.
 
 ## 13. CSS y JavaScript con Asset Mapper
+
+[🔝](#starshop)
 
 ¿Qué pasa con las imágenes, CSS y JavaScript? ¿Cómo funciona eso en Symfony?
 
@@ -905,7 +963,7 @@ Asset Mapper tiene dos grandes superpoderes:
 ### Listado de activos y ruta lógica
 
 ```shell
-php bin/console debug:asset
+symfony console debug:asset
 ```
 
 Creamos el directorio `assets/images/`.
@@ -932,6 +990,8 @@ composer require symfony/asset
 
 ## 14. Tailwind CSS
 
+[🔝](#starshop)
+
 ¿Qué pasa con el CSS? Eres libre de añadir el CSS que quieras a `app/styles/app.css`. Ese archivo ya está cargado en la página.
 
 ¿Quieres utilizar CSS de `Bootstrap`? Consulta la documentación de Asset Mapper sobre cómo hacerlo.
@@ -945,7 +1005,7 @@ composer require symfonycasts/tailwind-bundle
 Para este paquete, la receta no hace nada más que activar el nuevo bundle. Para poner en marcha Tailwind, una vez en tu proyecto, ejecuta:
 
 ```shell
-php bin/console tailwind:init
+symfony console tailwind:init
 ```
 
 Esto hace tres cosas.
@@ -959,7 +1019,7 @@ Esto hace tres cosas.
 Por último, hay que compilar Tailwind, así que tenemos que ejecutar un comando para hacerlo:
 
 ```shell
-php bin/console tailwind:build -w
+symfony console tailwind:build -w
 ```
 
 ### Ver Tailwind en acción
@@ -979,7 +1039,7 @@ php bin/console tailwind:build -w
 # .symfony.local.yaml
 workers:
     tailwind:
-        cmd: ['symfony', 'console', 'tailwind', 'build', '--watch']
+        cmd: ['symfony', 'console', 'tailwind:build', '--watch']
 ```
 
 ### Copiar en plantillas estilizadas
@@ -1171,10 +1231,12 @@ y finalmente `show.html.twig`.
    Si copias los archivos (en lugar del contenido de los archivos), puede que el sistema de caché de Symfony no note el cambio y no veas el nuevo diseño. Si eso ocurre, borra la caché ejecutando:
 
    ```shell
-   php bin/console cache:clear.
+   symfony console cache:clear.
    ```
 
 ## 15. Twig Parciales y para bucles
+
+[🔝](#starshop)
 
 ### Organizar en una Plantilla Parcial
 
