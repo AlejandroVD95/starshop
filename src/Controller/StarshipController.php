@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class StarshipController extends AbstractController
 {
-    #[Route('/api/starships/{id<\d+>}')]
+    #[Route('/starships/{id<\d+>}', name: 'app_starship_show')]
 
     public function show(int $id, StarshipRepository $repository): Response
     {
